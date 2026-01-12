@@ -2,9 +2,9 @@
 name: incident-response
 description: Structured incident investigation workflow. Automatically invoked when investigating production issues, outages, service degradation, or customer-impacting problems.
 allowed-tools:
-  - Bash(gcloud *)
-  - Bash(kubectl *)
-  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*)
+  - Bash(gcloud:*)
+  - Bash(kubectl:*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*:*)
   - Read
   - Grep
   - Glob

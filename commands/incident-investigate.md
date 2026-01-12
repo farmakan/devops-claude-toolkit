@@ -1,11 +1,11 @@
 ---
 description: Deep dive investigation into specific service issues
 allowed-tools:
-  - Bash(gcloud *)
-  - Bash(kubectl *)
-  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*)
-  - Bash(git *)
-  - Bash(jq *)
+  - Bash(gcloud:*)
+  - Bash(kubectl:*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*:*)
+  - Bash(git:*)
+  - Bash(jq:*)
   - Read
   - Grep
   - Glob

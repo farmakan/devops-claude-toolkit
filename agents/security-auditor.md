@@ -2,9 +2,9 @@
 name: security-auditor
 description: Specialized agent for security posture analysis and audit log review. Use when you need to review IAM policies, audit logs, security configurations, or identify security vulnerabilities.
 tools:
-  - Bash(gcloud logging *)
-  - Bash(gcloud iam *)
-  - Bash(gcloud asset *)
+  - Bash(gcloud logging:*)
+  - Bash(gcloud iam:*)
+  - Bash(gcloud asset:*)
   - Read
   - Grep
 model: opus

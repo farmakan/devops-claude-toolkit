@@ -1,13 +1,13 @@
 ---
 description: Parallel data collection from all infrastructure sources
 allowed-tools:
-  - Bash(gcloud *)
-  - Bash(bq *)
-  - Bash(kubectl *)
-  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*)
-  - Bash(mkdir *)
-  - Bash(cat *)
-  - Bash(rm /tmp/claude-*)
+  - Bash(gcloud:*)
+  - Bash(bq:*)
+  - Bash(kubectl:*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*:*)
+  - Bash(mkdir:*)
+  - Bash(cat:*)
+  - Bash(rm:/tmp/claude-*)
   - Read
 argument-hint: [time-range]
 model: opus

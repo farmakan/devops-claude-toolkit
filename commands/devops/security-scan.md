@@ -1,8 +1,8 @@
 ---
 description: Security posture scan across GCP project and Kubernetes
 allowed-tools:
-  - Bash(gcloud *)
-  - Bash(kubectl *)
+  - Bash(gcloud:*)
+  - Bash(kubectl:*)
   - Read
   - Grep
 argument-hint: [scope]

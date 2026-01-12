@@ -2,7 +2,7 @@
 name: cost-analyzer
 description: Specialized agent for GCP cost analysis using BigQuery billing data. Use when you need to analyze cloud spending, detect cost anomalies, or identify optimization opportunities.
 tools:
-  - Bash(bq *)
+  - Bash(bq:*)
   - Read
 model: opus
 ---

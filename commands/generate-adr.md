@@ -4,8 +4,8 @@ allowed-tools:
   - Read
   - Write(docs/**)
   - Glob
-  - Bash(ls *)
-  - Bash(date *)
+  - Bash(ls:*)
+  - Bash(date:*)
 argument-hint: <decision-topic>
 model: opus
 ---

@@ -2,8 +2,8 @@
 name: gcp-logging
 description: Fetch and analyze GCP Cloud Logging data. Automatically invoked when analyzing logs, investigating errors, debugging latency issues, or examining service behavior in GCP.
 allowed-tools:
-  - Bash(gcloud logging *)
-  - Bash(jq *)
+  - Bash(gcloud logging:*)
+  - Bash(jq:*)
   - Read
   - Grep
 ---

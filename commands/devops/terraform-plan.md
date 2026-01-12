@@ -1,8 +1,8 @@
 ---
 description: Review and analyze Terraform plan output for infrastructure changes
 allowed-tools:
-  - Bash(terraform *)
-  - Bash(cat *)
+  - Bash(terraform:*)
+  - Bash(cat:*)
   - Read
   - Grep
   - Glob

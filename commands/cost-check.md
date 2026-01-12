@@ -1,8 +1,8 @@
 ---
 description: Quick cost anomaly detection comparing current spend against baseline
 allowed-tools:
-  - Bash(bq *)
-  - Bash(gcloud *)
+  - Bash(bq:*)
+  - Bash(gcloud:*)
   - Read
 argument-hint: [days-lookback]
 model: haiku

@@ -1,8 +1,8 @@
 ---
 description: Fetch and analyze recent error logs from GCP Cloud Logging
 allowed-tools:
-  - Bash(gcloud logging *)
-  - Bash(jq *)
+  - Bash(gcloud logging:*)
+  - Bash(jq:*)
   - Read
   - Grep
 argument-hint: [service-name] [time-range]

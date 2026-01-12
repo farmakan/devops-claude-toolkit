@@ -1,9 +1,9 @@
 ---
 description: Quick infrastructure health check across all components
 allowed-tools:
-  - Bash(gcloud *)
-  - Bash(kubectl *)
-  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*)
+  - Bash(gcloud:*)
+  - Bash(kubectl:*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*:*)
   - Read
 argument-hint: [environment]
 model: haiku

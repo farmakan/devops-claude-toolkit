@@ -2,8 +2,8 @@
 name: metrics-collector
 description: Specialized agent for GCP metrics collection and analysis. Use when you need to gather resource utilization metrics, performance data, or identify resource anomalies.
 tools:
-  - Bash(gcloud monitoring *)
-  - Bash(kubectl top *)
+  - Bash(gcloud monitoring:*)
+  - Bash(kubectl top:*)
   - Read
 model: haiku
 ---

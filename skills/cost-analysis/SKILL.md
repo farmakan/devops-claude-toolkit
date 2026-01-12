@@ -2,8 +2,8 @@
 name: cost-analysis
 description: Analyze GCP costs using BigQuery billing export. Automatically invoked for cost anomaly detection, budget tracking, spend optimization, or resource efficiency analysis.
 allowed-tools:
-  - Bash(bq *)
-  - Bash(gcloud billing *)
+  - Bash(bq:*)
+  - Bash(gcloud billing:*)
   - Read
 ---
 

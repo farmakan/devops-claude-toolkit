@@ -1,8 +1,8 @@
 ---
 description: Comprehensive Kubernetes cluster security and configuration audit
 allowed-tools:
-  - Bash(kubectl *)
-  - Bash(gcloud *)
+  - Bash(kubectl:*)
+  - Bash(gcloud:*)
   - Read
   - Grep
 argument-hint: [namespace]

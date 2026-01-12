@@ -2,8 +2,8 @@
 name: log-analyzer
 description: Specialized agent for log analysis and error pattern detection. Use when you need to analyze GCP Cloud Logging data, identify error patterns, cluster similar errors, and build timelines.
 tools:
-  - Bash(gcloud logging *)
-  - Bash(jq *)
+  - Bash(gcloud logging:*)
+  - Bash(jq:*)
   - Read
   - Grep
 model: haiku
