@@ -17,6 +17,41 @@ This toolkit provides interactive, on-demand infrastructure analysis capabilitie
 
 ---
 
+## Mandatory Requirements: Code-Based Analysis
+
+> **CRITICAL**: All analysis performed by this toolkit MUST be grounded in actual code. Abstract recommendations without code context are not permitted.
+
+### Code Repository Access (REQUIRED)
+
+Before any analysis can begin, the toolkit MUST have access to the relevant code repository through one of these methods:
+
+1. **Local Files**: The codebase must be available in the local filesystem
+2. **GitHub Integration**: Use `gh` CLI to access repository files and PRs
+3. **Git Clone**: Repository must be cloned locally for analysis
+
+### Analysis Principles
+
+1. **All findings must reference specific code**
+   - Error analysis must trace back to specific files, functions, and line numbers
+   - Cost anomalies must correlate to specific services defined in infrastructure code
+   - Performance issues must map to actual code paths
+
+2. **All suggestions must be actionable code changes**
+   - Recommendations must include specific file paths to modify
+   - When suggesting fixes, provide concrete code snippets
+   - Reference existing code patterns in the repository
+
+3. **No abstract recommendations**
+   - ❌ "Consider implementing caching" (too vague)
+   - ✅ "Add Redis caching in `src/services/api.go:142` using the existing `cache.Client` from `pkg/cache/redis.go`" (specific)
+
+4. **Validation against codebase**
+   - Before suggesting architectural changes, verify existing patterns
+   - Cross-reference with IaC files (Terraform, Kubernetes manifests)
+   - Check for existing implementations before proposing new ones
+
+---
+
 ## Architecture Overview
 
 ```
@@ -156,11 +191,14 @@ Primary language is Go for custom tooling.
 - kubectl: Kubernetes CLI for cluster inspection
 
 ## Analysis Guidelines
-1. Always check for cost implications of issues found
-2. Correlate errors with recent deployments (git log)
-3. Consider security implications of any findings
-4. Provide actionable recommendations, not just observations
-5. Include severity assessment (Critical/High/Medium/Low)
+1. **MANDATORY**: All analysis must reference actual code (files, line numbers, functions)
+2. **MANDATORY**: Access to code repository (local or GitHub) required before analysis
+3. Always check for cost implications of issues found
+4. Correlate errors with recent deployments (git log) and specific code changes
+5. Consider security implications of any findings
+6. Provide actionable recommendations with specific code changes, not abstract observations
+7. Include severity assessment (Critical/High/Medium/Low)
+8. Reference specific IaC files (Terraform, K8s manifests) when discussing infrastructure
 
 ## Output Locations
 - Reports: ./reports/{date}-{type}.md
@@ -652,10 +690,12 @@ ls -la ${COLLECT_DIR}
 Analysis Checklist:
 1. [ ] Parse error logs - identify unique error signatures
 2. [ ] Build timeline - when did issues start?
-3. [ ] Check deployments - correlate with git history
-4. [ ] Review K8s events - pod restarts, OOM kills, scheduling issues
-5. [ ] Check external dependencies - database, APIs, third-party services
-6. [ ] Resource analysis - CPU, memory, disk, connections
+3. [ ] Check deployments - correlate with git history AND identify specific code changes
+4. [ ] **Trace to code** - map errors to specific files, functions, and line numbers
+5. [ ] Review K8s events - pod restarts, OOM kills, scheduling issues
+6. [ ] Check external dependencies - database, APIs, third-party services
+7. [ ] Resource analysis - CPU, memory, disk, connections
+8. [ ] **Verify code access** - ensure repository is available for deep analysis
 
 ### Phase 4: Mitigation
 
@@ -900,10 +940,14 @@ Produce a structured report:
 - Executive summary (2-3 sentences)
 - Error clusters table with counts
 - Timeline of significant events
-- Root cause hypothesis
-- Prioritized recommendations
+- Root cause hypothesis with **specific code references** (file:line)
+- Prioritized recommendations with **concrete code changes**
 
-If errors involve code, suggest specific fixes with code snippets.
+**MANDATORY**: All suggestions must reference specific code locations:
+- Include file paths and line numbers for problematic code
+- Provide code snippets for suggested fixes
+- Reference existing patterns in the codebase when proposing solutions
+- If stack traces are available, trace to the root source file
 ```
 
 ### Command 2: /cost-check
@@ -1855,12 +1899,14 @@ func main() {
 
 ## Limitations and Considerations
 
-1. **Skills cannot call other skills** - Claude uses multiple skills, but they don't chain directly
-2. **Subagents cannot spawn sub-subagents** - Hierarchy is flat
-3. **Token costs scale with parallelism** - Multiple subagents = multiple API calls
-4. **Large outputs may truncate** - Use `--limit` and `head` to manage size
-5. **Background processes need tracking** - Use `/bashes` to monitor long-running commands
-6. **Read-only by design** - This toolkit investigates but doesn't modify infrastructure
+1. **Code repository access is MANDATORY** - Analysis cannot proceed without access to actual code via local files or GitHub
+2. **All recommendations must reference specific code** - Abstract suggestions are not permitted
+3. **Skills cannot call other skills** - Claude uses multiple skills, but they don't chain directly
+4. **Subagents cannot spawn sub-subagents** - Hierarchy is flat
+5. **Token costs scale with parallelism** - Multiple subagents = multiple API calls
+6. **Large outputs may truncate** - Use `--limit` and `head` to manage size
+7. **Background processes need tracking** - Use `/bashes` to monitor long-running commands
+8. **Read-only by design** - This toolkit investigates but doesn't modify infrastructure
 
 ---
 
