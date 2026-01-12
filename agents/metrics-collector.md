@@ -6,7 +6,6 @@ tools:
   - Bash(kubectl top *)
   - Read
 model: haiku
-max_turns: 8
 ---
 
 # Metrics Collector Subagent

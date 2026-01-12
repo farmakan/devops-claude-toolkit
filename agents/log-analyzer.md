@@ -7,7 +7,6 @@ tools:
   - Read
   - Grep
 model: haiku
-max_turns: 10
 ---
 
 # Log Analyzer Subagent

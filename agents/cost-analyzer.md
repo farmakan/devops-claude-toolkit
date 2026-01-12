@@ -5,7 +5,6 @@ tools:
   - Bash(bq *)
   - Read
 model: opus
-max_turns: 12
 ---
 
 # Cost Analyzer Subagent

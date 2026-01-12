@@ -8,7 +8,6 @@ tools:
   - Read
   - Grep
 model: opus
-max_turns: 15
 ---
 
 # Security Auditor Subagent
