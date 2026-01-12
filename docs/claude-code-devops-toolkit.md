@@ -263,7 +263,7 @@ Primary language is Go for custom tooling.
     "KUBECONFIG": "~/.kube/config"
   },
   "model": {
-    "default": "sonnet",
+    "default": "opus",
     "fast": "haiku",
     "deep": "opus"
   }
@@ -894,7 +894,7 @@ allowed-tools:
   - Read
   - Grep
 argument-hint: [service-name] [time-range]
-model: sonnet
+model: opus
 ---
 
 # Log Analysis Command
@@ -1105,7 +1105,7 @@ allowed-tools:
   - Grep
   - Glob
 argument-hint: <service-name>
-model: sonnet
+model: opus
 ---
 
 # Incident Investigation: $ARGUMENTS
@@ -1221,7 +1221,7 @@ allowed-tools:
   - Bash(ls *)
   - Bash(date *)
 argument-hint: <decision-topic>
-model: sonnet
+model: opus
 ---
 
 # Generate ADR: $ARGUMENTS
@@ -1310,7 +1310,7 @@ allowed-tools:
   - Bash(rm /tmp/claude-*)
   - Read
 argument-hint: [time-range]
-model: sonnet
+model: opus
 ---
 
 # Parallel Infrastructure Data Collection
@@ -1573,7 +1573,7 @@ description: Specialized agent for GCP cost analysis using BigQuery billing data
 tools:
   - Bash(bq *)
   - Read
-model: sonnet
+model: opus
 max_turns: 12
 ---
 
@@ -1670,7 +1670,7 @@ tools:
   - Bash(gcloud asset *)
   - Read
   - Grep
-model: sonnet
+model: opus
 max_turns: 15
 ---
 
@@ -1826,15 +1826,15 @@ func main() {
 
 | Command | Use Case | Model |
 |---------|----------|-------|
-| `/analyze-logs api-gateway` | Investigate errors | Sonnet |
-| `/incident-investigate payment-svc` | Active incident | Sonnet |
+| `/analyze-logs api-gateway` | Investigate errors | Opus |
+| `/incident-investigate payment-svc` | Active incident | Opus |
 
 ### Documentation Commands (5-10 minutes)
 
 | Command | Use Case | Model |
 |---------|----------|-------|
-| `/generate-adr caching-strategy` | Document decisions | Sonnet |
-| `/parallel-collect` | Comprehensive data gather | Sonnet |
+| `/generate-adr caching-strategy` | Document decisions | Opus |
+| `/parallel-collect` | Comprehensive data gather | Opus |
 
 ### Workflow Examples
 

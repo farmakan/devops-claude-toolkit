@@ -7,7 +7,7 @@ tools:
   - Bash(gcloud asset *)
   - Read
   - Grep
-model: sonnet
+model: opus
 max_turns: 15
 ---
 

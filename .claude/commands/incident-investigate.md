@@ -10,7 +10,7 @@ allowed-tools:
   - Grep
   - Glob
 argument-hint: <service-name>
-model: sonnet
+model: opus
 ---
 
 # Incident Investigation: $ARGUMENTS

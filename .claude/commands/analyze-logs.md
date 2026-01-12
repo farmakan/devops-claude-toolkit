@@ -6,7 +6,7 @@ allowed-tools:
   - Read
   - Grep
 argument-hint: [service-name] [time-range]
-model: sonnet
+model: opus
 ---
 
 # Log Analysis Command

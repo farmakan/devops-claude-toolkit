@@ -6,7 +6,7 @@ allowed-tools:
   - Read
   - Grep
 argument-hint: [namespace]
-model: sonnet
+model: opus
 ---
 
 # Kubernetes Security Audit

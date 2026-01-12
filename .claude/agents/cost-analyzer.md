@@ -4,7 +4,7 @@ description: Specialized agent for GCP cost analysis using BigQuery billing data
 tools:
   - Bash(bq *)
   - Read
-model: sonnet
+model: opus
 max_turns: 12
 ---
 

@@ -10,7 +10,7 @@ allowed-tools:
   - Bash(rm /tmp/claude-*)
   - Read
 argument-hint: [time-range]
-model: sonnet
+model: opus
 ---
 
 # Parallel Infrastructure Data Collection

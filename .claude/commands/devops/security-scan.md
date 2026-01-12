@@ -6,7 +6,7 @@ allowed-tools:
   - Read
   - Grep
 argument-hint: [scope]
-model: sonnet
+model: opus
 ---
 
 # Security Posture Scan

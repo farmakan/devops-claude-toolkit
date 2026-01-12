@@ -7,7 +7,7 @@ allowed-tools:
   - Bash(ls *)
   - Bash(date *)
 argument-hint: <decision-topic>
-model: sonnet
+model: opus
 ---
 
 # Generate ADR: $ARGUMENTS

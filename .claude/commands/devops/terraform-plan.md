@@ -7,7 +7,7 @@ allowed-tools:
   - Grep
   - Glob
 argument-hint: [terraform-dir]
-model: sonnet
+model: opus
 ---
 
 # Terraform Plan Analysis
