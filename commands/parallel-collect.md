@@ -4,7 +4,7 @@ allowed-tools:
   - Bash(gcloud *)
   - Bash(bq *)
   - Bash(kubectl *)
-  - Bash(./scripts/*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*)
   - Bash(mkdir *)
   - Bash(cat *)
   - Bash(rm /tmp/claude-*)
@@ -52,7 +52,7 @@ Execute all collectors simultaneously:
     > $COLLECT_DIR/costs.json 2>&1 &
 
   # Custom scripts
-  [ -f ./scripts/collect-all.sh ] && ./scripts/collect-all.sh \
+  [ -f ${CLAUDE_PLUGIN_ROOT}/scripts/collect-all.sh ] && ${CLAUDE_PLUGIN_ROOT}/scripts/collect-all.sh \
     > $COLLECT_DIR/custom.json 2>&1 &
 
   wait

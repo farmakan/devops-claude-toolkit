@@ -3,7 +3,7 @@ description: Quick infrastructure health check across all components
 allowed-tools:
   - Bash(gcloud *)
   - Bash(kubectl *)
-  - Bash(./scripts/*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*)
   - Read
 argument-hint: [environment]
 model: haiku
@@ -42,7 +42,7 @@ model: haiku
 ## Custom Health Checks
 
 ```
-!`[ -f ./scripts/health-check.sh ] && ./scripts/health-check.sh ${ARGUMENTS:-production} 2>/dev/null || echo "No custom health check script found"`
+!`[ -f ${CLAUDE_PLUGIN_ROOT}/scripts/health-check.sh ] && ${CLAUDE_PLUGIN_ROOT}/scripts/health-check.sh ${ARGUMENTS:-production} 2>/dev/null || echo "No custom health check script found"`
 ```
 
 ## Output Format

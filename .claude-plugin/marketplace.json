@@ -1,0 +1,20 @@
+{
+  "name": "devops-claude-toolkit",
+  "owner": {
+    "name": "farmakan",
+    "email": "farmakan@users.noreply.github.com"
+  },
+  "plugins": [
+    {
+      "name": "devops-toolkit",
+      "source": "./",
+      "description": "Comprehensive DevOps analysis toolkit for GCP infrastructure - log analysis, cost monitoring, incident response, security auditing, and ADR generation",
+      "version": "1.0.0",
+      "author": {
+        "name": "farmakan"
+      },
+      "homepage": "https://github.com/farmakan/devops-claude-toolkit",
+      "license": "MIT"
+    }
+  ]
+}

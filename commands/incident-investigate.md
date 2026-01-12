@@ -3,7 +3,7 @@ description: Deep dive investigation into specific service issues
 allowed-tools:
   - Bash(gcloud *)
   - Bash(kubectl *)
-  - Bash(./scripts/*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*)
   - Bash(git *)
   - Bash(jq *)
   - Read

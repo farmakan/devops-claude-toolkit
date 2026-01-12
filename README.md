@@ -1,10 +1,38 @@
 # DevOps Claude Toolkit
 
-A comprehensive Claude Code toolkit for ad-hoc infrastructure analysis and DevOps automation.
+A comprehensive Claude Code plugin for ad-hoc infrastructure analysis and DevOps automation.
+
+## Installation
+
+### From GitHub Marketplace
+
+1. Add the marketplace to Claude Code:
+   ```
+   /plugin marketplace add farmakan/devops-claude-toolkit
+   ```
+
+2. Install the plugin:
+   ```
+   /plugin install devops-toolkit@devops-claude-toolkit
+   ```
+
+### Manual Installation
+
+```bash
+# Clone and install locally
+git clone https://github.com/farmakan/devops-claude-toolkit.git
+claude --plugin-dir ./devops-claude-toolkit
+```
+
+### Verify Installation
+
+```
+/devops-toolkit:health-status
+```
 
 ## Overview
 
-This toolkit provides interactive, on-demand infrastructure analysis capabilities using Claude Code's native extensibility features:
+This plugin provides interactive, on-demand infrastructure analysis capabilities:
 
 - **Skills**: Auto-loaded expertise packages for GCP logging, cost analysis, incident response, and ADR generation
 - **Slash Commands**: Human-triggered workflows for common DevOps tasks
@@ -19,61 +47,38 @@ This toolkit provides interactive, on-demand infrastructure analysis capabilitie
 - `kubectl` configured for Kubernetes clusters (optional)
 - `jq` for JSON processing
 
-## Quick Start
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/farmakan/devops-claude-toolkit.git
-   cd devops-claude-toolkit
-   ```
-
-2. Set your GCP project:
-   ```bash
-   export GCP_PROJECT=your-project-id
-   # Or configure in gcloud
-   gcloud config set project your-project-id
-   ```
-
-3. Start Claude Code in the toolkit directory:
-   ```bash
-   claude
-   ```
-
-4. Run a health check:
-   ```
-   /health-status
-   ```
-
 ## Available Commands
 
-### Quick Commands (Fast)
+All commands are namespaced with `devops-toolkit:` when installed as a plugin.
+
+### Quick Commands (Fast - Haiku model)
 
 | Command | Description |
 |---------|-------------|
-| `/health-status` | Infrastructure health check across all components |
-| `/cost-check` | Quick cost anomaly detection |
+| `/devops-toolkit:health-status` | Infrastructure health check across all components |
+| `/devops-toolkit:cost-check` | Quick cost anomaly detection |
 
-### Analysis Commands
-
-| Command | Description |
-|---------|-------------|
-| `/analyze-logs [service] [time]` | Fetch and analyze GCP Cloud Logging data |
-| `/incident-investigate <service>` | Deep dive investigation into service issues |
-| `/parallel-collect [time-range]` | Parallel data collection from all sources |
-
-### Documentation Commands
+### Analysis Commands (Opus model)
 
 | Command | Description |
 |---------|-------------|
-| `/generate-adr <topic>` | Generate Architecture Decision Record |
+| `/devops-toolkit:analyze-logs [service] [time]` | Fetch and analyze GCP Cloud Logging data |
+| `/devops-toolkit:incident-investigate <service>` | Deep dive investigation into service issues |
+| `/devops-toolkit:parallel-collect [time-range]` | Parallel data collection from all sources |
 
-### DevOps Namespaced Commands
+### Documentation Commands (Opus model)
 
 | Command | Description |
 |---------|-------------|
-| `/devops:k8s-audit [namespace]` | Kubernetes security and configuration audit |
-| `/devops:terraform-plan [dir]` | Terraform plan analysis |
-| `/devops:security-scan [scope]` | Security posture scan |
+| `/devops-toolkit:generate-adr <topic>` | Generate Architecture Decision Record |
+
+### DevOps Namespaced Commands (Opus model)
+
+| Command | Description |
+|---------|-------------|
+| `/devops-toolkit:devops:k8s-audit [namespace]` | Kubernetes security and configuration audit |
+| `/devops-toolkit:devops:terraform-plan [dir]` | Terraform plan analysis |
+| `/devops-toolkit:devops:security-scan [scope]` | Security posture scan |
 
 ## Skills (Auto-Loaded)
 
@@ -88,61 +93,43 @@ Skills are automatically activated when the conversation context matches:
 
 Specialized agents for parallel execution:
 
-- **log-analyzer**: Error pattern detection and clustering
-- **metrics-collector**: Resource utilization metrics
-- **cost-analyzer**: Cloud spending analysis
-- **security-auditor**: Security posture analysis
+- **log-analyzer**: Error pattern detection and clustering (Haiku)
+- **metrics-collector**: Resource utilization metrics (Haiku)
+- **cost-analyzer**: Cloud spending analysis (Opus)
+- **security-auditor**: Security posture analysis (Opus)
 
-## Scripts
-
-Shell scripts in `./scripts/`:
-
-```bash
-# Fetch logs
-./scripts/fetch-logs.sh [service-name] [time-range] [severity]
-
-# Health check
-./scripts/health-check.sh [environment]
-
-# Cost report
-./scripts/cost-report.sh [days-lookback]
-
-# Security audit
-./scripts/security-audit.sh [project-id]
-```
-
-## Project Structure
+## Plugin Structure
 
 ```
-devops-toolkit/
-├── .claude/
-│   ├── settings.json           # Permissions and configuration
-│   ├── commands/               # Slash commands
-│   │   ├── analyze-logs.md
-│   │   ├── cost-check.md
-│   │   ├── health-status.md
-│   │   ├── incident-investigate.md
-│   │   ├── generate-adr.md
-│   │   ├── parallel-collect.md
-│   │   └── devops/             # Namespaced commands
-│   │       ├── k8s-audit.md
-│   │       ├── terraform-plan.md
-│   │       └── security-scan.md
-│   ├── agents/                 # Subagent definitions
-│   │   ├── log-analyzer.md
-│   │   ├── metrics-collector.md
-│   │   ├── cost-analyzer.md
-│   │   └── security-auditor.md
-│   └── skills/                 # Auto-loaded skills
-│       ├── gcp-logging/
-│       ├── cost-analysis/
-│       ├── incident-response/
-│       └── adr-generation/
+devops-claude-toolkit/
+├── .claude-plugin/
+│   ├── plugin.json             # Plugin manifest
+│   └── marketplace.json        # Marketplace definition
+├── commands/                   # Slash commands
+│   ├── analyze-logs.md
+│   ├── cost-check.md
+│   ├── health-status.md
+│   ├── incident-investigate.md
+│   ├── generate-adr.md
+│   ├── parallel-collect.md
+│   └── devops/                 # Namespaced commands
+│       ├── k8s-audit.md
+│       ├── terraform-plan.md
+│       └── security-scan.md
+├── agents/                     # Subagent definitions
+│   ├── log-analyzer.md
+│   ├── metrics-collector.md
+│   ├── cost-analyzer.md
+│   └── security-auditor.md
+├── skills/                     # Auto-loaded skills
+│   ├── gcp-logging/
+│   ├── cost-analysis/
+│   ├── incident-response/
+│   └── adr-generation/
 ├── scripts/                    # Shell scripts
 ├── docs/
 │   ├── decisions/              # ADR output directory
 │   └── templates/              # Report templates
-├── reports/                    # Generated reports
 ├── CLAUDE.md                   # Project context
 └── README.md
 ```
@@ -157,15 +144,38 @@ devops-toolkit/
 | `KUBECONFIG` | Path to kubeconfig file | No (defaults to ~/.kube/config) |
 | `SLACK_WEBHOOK_URL` | Slack webhook for notifications | No |
 
-### Permissions
+### Recommended Project Settings
 
-The toolkit is configured with read-only access to:
-- GCP Cloud Logging
-- BigQuery billing data
-- Kubernetes resources (get, describe, logs)
-- Git history
+Add this to your project's `.claude/settings.json` for optimal permissions:
 
-Destructive operations (delete, apply, create) are blocked by default.
+```json
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(docs/**)",
+      "Write(reports/**)",
+      "Glob(**)",
+      "Grep(**)",
+      "Bash(gcloud *)",
+      "Bash(bq *)",
+      "Bash(kubectl get *)",
+      "Bash(kubectl describe *)",
+      "Bash(kubectl logs *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(jq *)"
+    ],
+    "deny": [
+      "Bash(kubectl delete *)",
+      "Bash(kubectl apply *)",
+      "Bash(gcloud * delete *)",
+      "Bash(gcloud * create *)",
+      "Bash(bq rm *)"
+    ]
+  }
+}
+```
 
 ## Analysis Guidelines
 
@@ -174,11 +184,26 @@ Destructive operations (delete, apply, create) are blocked by default.
 - Suggestions must include actionable code changes with specific paths
 - No abstract recommendations - must be concrete and specific
 
-## Output Locations
+## Workflow Examples
 
-- **Reports**: `./reports/{date}-{type}.md`
-- **ADRs**: `./docs/decisions/ADR-{number}-{topic}.md`
-- **Temporary data**: `/tmp/claude-devops-*/`
+### Morning Standup Prep
+```
+/devops-toolkit:health-status
+/devops-toolkit:cost-check
+```
+
+### Incident Response
+```
+/devops-toolkit:incident-investigate payment-service
+# After resolution:
+/devops-toolkit:generate-adr incident-remediation
+```
+
+### Weekly Security Review
+```
+/devops-toolkit:devops:security-scan
+/devops-toolkit:devops:k8s-audit
+```
 
 ## Contributing
 

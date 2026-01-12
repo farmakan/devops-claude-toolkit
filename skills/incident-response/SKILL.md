@@ -4,7 +4,7 @@ description: Structured incident investigation workflow. Automatically invoked w
 allowed-tools:
   - Bash(gcloud *)
   - Bash(kubectl *)
-  - Bash(./scripts/*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/*)
   - Read
   - Grep
   - Glob
@@ -20,7 +20,7 @@ allowed-tools:
 
 ```bash
 # 1. Check overall service status
-./scripts/health-check.sh ${SERVICE:-all}
+${CLAUDE_PLUGIN_ROOT}/scripts/health-check.sh ${SERVICE:-all}
 
 # 2. Recent deployments (correlation check)
 git log --oneline --since="4 hours ago" --all

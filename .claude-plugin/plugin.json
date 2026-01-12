@@ -1,0 +1,27 @@
+{
+  "name": "devops-toolkit",
+  "description": "Comprehensive DevOps analysis toolkit for GCP infrastructure - log analysis, cost monitoring, incident response, security auditing, and ADR generation",
+  "version": "1.0.0",
+  "author": {
+    "name": "farmakan",
+    "url": "https://github.com/farmakan"
+  },
+  "homepage": "https://github.com/farmakan/devops-claude-toolkit",
+  "repository": "https://github.com/farmakan/devops-claude-toolkit",
+  "license": "MIT",
+  "keywords": [
+    "devops",
+    "gcp",
+    "cloud",
+    "infrastructure",
+    "logging",
+    "cost-analysis",
+    "incident-response",
+    "security",
+    "kubernetes",
+    "terraform"
+  ],
+  "commands": "./commands/",
+  "agents": "./agents/",
+  "skills": "./skills/"
+}
