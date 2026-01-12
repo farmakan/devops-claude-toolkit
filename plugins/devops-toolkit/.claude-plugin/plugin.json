@@ -21,7 +21,7 @@
     "kubernetes",
     "terraform"
   ],
-  "commands": "../commands/",
-  "agents": "../agents/",
-  "skills": "../skills/"
+  "commands": "./commands/",
+  "agents": "./agents/",
+  "skills": "./skills/"
 }
