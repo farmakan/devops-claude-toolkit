@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "devops-toolkit",
-      "source": "./",
+      "source": "./plugins/devops-toolkit",
       "description": "Comprehensive DevOps analysis toolkit for GCP infrastructure - log analysis, cost monitoring, incident response, security auditing, and ADR generation",
       "version": "1.0.0",
       "author": {
